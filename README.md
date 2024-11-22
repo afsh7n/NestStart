@@ -85,19 +85,31 @@ npm install
 Create a `.env` file in the project root. Here's an example:
 
 ```plaintext
-# General
-NODE_ENV=development
+# ========================
+# General Configuration
+# ========================
+PORT=3000                # Application port
+NODE_ENV=development      # Environment: development, production, or staging
 
-# MySQL
-DB_TYPE=postgres
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=root
-DB_PASSWORD=password
-DB_NAME=my_database
+# ========================
+# Database Configuration
+# ========================
+DB_TYPE=postgres             # Database type: mysql or postgres
+DB_HOST=postgres             # Database host (service name in Docker)
+DB_PORT=5432              # Database port
+DB_USERNAME=admin         # Database username
+DB_PASSWORD=password      # Database password
+DB_NAME=my_database       # Database name
 
-# App
-PORT=3000
+# ========================
+# Swagger Configuration
+# ========================
+SWAGGER_TITLE=My Awesome API      # Title of the Swagger documentation
+SWAGGER_DESCRIPTION=Detailed API documentation for My Awesome API  # Description of the API
+SWAGGER_VERSION=2.0               # API version for Swagger
+SWAGGER_PATH=api/docs             # URL path for Swagger UI
+SWAGGER_BEARER_AUTH=true          # Enable bearer authentication in Swagger
+
 ```
 
 ---
@@ -107,12 +119,12 @@ The project is pre-configured to use Docker Compose for running the app along wi
 
 #### **For MySQL:**
 ```bash
-DB_TYPE=mysql docker-compose --profile mysql up --build
+docker-compose -f docker-compose.mysql.yml up --build
 ```
 
 #### **For PostgreSQL:**
 ```bash
-DB_TYPE=postgres docker-compose --profile postgres up --build
+docker-compose -f docker-compose.postgres.yml up --build
 ```
 
 ---

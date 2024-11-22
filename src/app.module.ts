@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import {ConfigSetupModule} from "./configs/config.module";
-import {DatabaseModule} from "./core/database/database.module";
+import { CoreModule } from "./core/core.module";
 
 @Module({
   imports: [
     ConfigSetupModule,
-    DatabaseModule
+    CoreModule
   ],
   controllers: [],
   providers: [],
