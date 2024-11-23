@@ -7,6 +7,7 @@ async function bootstrap() {
 
   CoreModule.configureSwagger(app);
 
+  app.setGlobalPrefix(process.env.PREFIX_API)
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
